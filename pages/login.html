@@ -22,23 +22,26 @@
         <div class="flex justify-center items-center">
 
             <!-- <a href="" class=""><p class="text-grey mx-2">Already Have an account?</p></a> -->
-            <button class="btn-primary"> Sign Up</button>
+            <button class="btn-primary" onclick="signUp()"> Sign Up</button>
             <!-- <button class="bg-primary rounded-full  border border-transparent text-white px-6 py-1.5 mx-1.5 hover:bg-transparent hover:border hover:border-primary hover:text-primary transition cursor-pointer"> Sign Up</button> -->
         </div>
 
     </nav>
     <div id="website-container" class="w-[80%] mx-auto h-full flex flex-col items-center" >
         
-        <form id="signUpForm" class="form" action="">
+        <form id="signUpForm" class="form" onsubmit="login(event)">
             <p class="text-secondary text-3xl font-bold my-3">Welcome Back!</p>
             <p class="text-primary mb-3">Login and start taking quizzes now.</p>
             <label for="username" class="label ">Username</label>
-            <input type="text" name="username" id="username-login" class="input">
+            <input type="text" name="username" id="username" class="input">
             <label for="password" class="label">Password</label>
-            <input type="password" name="password"id="password-login" class="input">
-            <button id="login-submit" class="btn-primary w-[50%] mt-5">Login</button>
+            <input type="password" name="password"id="password" class="input">
+            <input type="submit" id="login-submit" class="btn-primary w-[50%] mt-5" value="Login"></input>
         </form>
 
     </div>
+
+
+    <script src="../scripts/login.js"></script>
 </body>
 </html>
