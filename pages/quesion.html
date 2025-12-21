@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Tailwind Link -->
+    <link rel="stylesheet" href="../src/output.css">
+</head>
+
+<body class="bg-gray-100 pt-14">
+    <nav class="fixed top-0 w-full mx-auto z-50 left-0 right-0">
+
+        <div class=" py-4 px-8 bg-white border border-borderColor  flex justify-between items-center">
+
+            <!-- Logo -->
+            <div class="flex justify-center items-center">
+                <img src="../assets/Icon.png" class="w-full mx-1.5" alt="">
+                <h1 class=" text-xl font-bold text-secondary">Quizify</h1>
+            </div>
+
+            <!-- Timer -->
+            <div id="timer" class="bg-gray-100 rounded-full px-3 py-1.5 border[1px]">
+                <!-- <i class="fa-solid fa-stopwatch text-primary text-lg" aria-hidden="true"></i> -->
+                <i class="fa-regular fa-clock font-bold text-primary text-base" aria-hidden="true"></i>
+                <span class="font-semibold text-base mx-1" id="time">15:00</span>
+            </div>
+
+        </div>
+
+        <!--  Progress Bar -->
+        <div class="w-full bg-gray-200 rounded-full h-1" id="progress-bar">
+            <div class="bg-primary h-1 rounded-r-full w-1/2"></div>
+        </div>
+    </nav>
+
+    
+    <main>
+        <div class="container mx-auto my-2 h-130  over gap-6 w-[80%] flex flex-wrap py-7 px-5  ">
+            <div id="quiestion" class="w-[67%] h-full bg-white shadow-soft rounded-xl p-5">
+                <span class="font-semibold bg-gray-100 rounded-full px-3 py-1 border[1px] text-primary text-sm"
+                    id="time">CELL BIOLOGY</span>
+                <div id="questionContent" class="py-3">
+                    <p class="text-2xl font-bold"> What is the primary function of the mithochondria in a eukaryotic
+                        cell?
+                    </p>
+                </div>
+                <div id="answers" class="my-5 ">
+                    <div>
+                        <label for="q1-answer1"
+                            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300  p-4 text-sm shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary ">
+                            <input type="radio" name="q1" value="0" id="q1-answer1" class="size-5 border-gray-300">
+                            Energy production (ATP generation)
+                        </label>
+                        <label for="q1-answer2"
+                            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300  p-4 text-sm shadow-sm transition-colors hover:bg-gray-50 has-checked:text-primary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary ">
+                            <input type="radio" name="q1" value="0" id="q1-answer2" class="size-5 border-gray-300">
+                            Energy production (ATP generation)
+                        </label>
+                        <label for="q1-answer3"
+                            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300  p-4 text-sm shadow-sm transition-colors hover:bg-gray-50 has-checked:text-primary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary ">
+                            <input type="radio" name="q1" value="0" id="q1-answer3" class="size-5 border-gray-300">
+                            Energy production (ATP generation)
+                        </label>
+                        <label for="q1-answer4"
+                            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300  p-4 text-sm shadow-sm transition-colors hover:bg-gray-50 has-checked:text-primary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary ">
+                            <input type="radio" name="q1" value="0" id="q1-answer4" class="size-5 border-gray-300">
+                            Energy production (ATP generation)
+                        </label>
+                    </div>
+
+                </div>
+
+
+
+                <div class=" flex justify-between my-0">
+                    <button
+                        class="bg-white text-primary font-semibold px-6 py-2 rounded-lg shadow-soft border border-borderColor hover:bg-gray-100 transition duration-300">
+                        Previous
+                    </button>
+                    <button
+                        class="bg-primary text-white font-semibold px-6 py-2 rounded-lg shadow-soft border border-primary hover:bg-blue-600 transition duration-300">
+                        Next
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="side-bar scrollGradient scrollbar-custom w-[30%] h-full overflow-y-scroll bg-white shadow-soft rounded-xl p-4 ">
+                <!-- <div class="bg-[url('../assets/flag-icon.png')] bg-center bg-no-repeat h-full opacity-40"> -->
+                <div class="flex flex-wrap justify-between pb-3 items-center border-b-2 border-b-gray-200 ">
+                    <h3 class="text-sm font-bold">
+                        Flagged Questions
+                    </h3>
+                    <p class=" bg-gray-100  rounded-2xl py-1.5 px-2.5 text-xs text-emerald-400 font-semibold">
+                        <span>5</span>/20
+                        Answered
+                    </p>
+                </div>
+
+
+
+                <!-- Flagged qustion -->
+
+                <!-- <a href=""> -->
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+                    id="flaggedQuestion">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="w-7 h-7 text-orange-400 rounded bg-gray-200  flex justify-center items-center">1
+                        </div>
+                        <p>what is the moisits</p>
+                    </div>
+                    <div class="">
+                        <i class="fa-regular fa-flag text-orange-400"></i>
+                    </div>
+                </div>
+                <!-- </a> -->
+
+
+
+
+                <!-- </div> -->
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+    </main>
+
+
+
+
+
+</body>
+
+</html>
