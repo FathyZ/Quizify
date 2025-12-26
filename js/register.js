@@ -124,10 +124,33 @@ for(var i=0;i<users.length;i++){
         localStorage.setItem("users", JSON.stringify(users));
 
 
-        document.body.appendChild(document.createElement('div')).innerHTML = '<div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"><div class="bg-white p-6 rounded shadow-md"><h2 class="text-2xl font-bold mb-4">Registration Successful</h2><p class="mb-4">You have been registered successfully!</p><button id="close-modal" class="bg-blue-500 text-white px-4 py-2 rounded">Close</button></div></div>';
-        document.getElementById('close-modal').addEventListener('click', function() {
-            document.body.removeChild(document.body.lastChild);
+        // document.body.appendChild(document.createElement('div')).innerHTML = '<div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"><div class="bg-white p-6 rounded shadow-md"><h2 class="text-2xl font-bold mb-4">Registration Successful</h2><p class="mb-4">You have been registered successfully!</p><button id="close-modal" class="bg-blue-500 text-white px-4 py-2 rounded">Close</button></div></div>';
+        // document.getElementById('close-modal').addEventListener('click', function() {
+        //     document.body.removeChild(document.body.lastChild);
+        // });
+
+        var alertDiv = document.createElement('div');
+        alertDiv.className = 'mt-2 bg-teal-500 text-sm text-white rounded-lg p-4 fixed top-[12%] right-[5%] opacity-0 transition-opacity duration-500';
+        alertDiv.setAttribute('role','alert')
+        alertDiv.setAttribute('tabindex','-1')
+        alertDiv.setAttribute('aria-labelledby','hs-solid-color-success-label')
+        alertDiv.innerHTML='<span id="hs-solid-color-success-label" class="font-bold">Registered ! </span>Your account was successfully created.'
+        document.body.appendChild(alertDiv);
+        //fade in
+        requestAnimationFrame(function() {
+            alertDiv.classList.remove('opacity-0');
         });
+        //fade out after 3 seconds
+        setTimeout(function() {
+            alertDiv.classList.add('opacity-0');
+            setTimeout(function() {
+                document.body.removeChild(alertDiv);
+            }, 500);
+        }, 3000);
+
+        window.location.replace('login.html');
+
+
     }
 
 }
