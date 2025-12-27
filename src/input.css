@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@theme {
+    --color-primary: #09c;
+    --color-borderColor: #E7E5E4;
+    --color-secondary: #0F172A;
+    --color-grey: #64748B;
+    --color-background-light: #F5F6F8;
+    --drop-shadow-main: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    --font-base: "Manrope", sans-serif;
+}
+
+@layer base {
+    body {
+        @apply bg-background-light w-full font-base;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-primary border-2 border-primary rounded-full text-white px-6 py-1.5 mx-1.5 hover:bg-white hover:border-2 hover:border-primary hover:text-primary transition cursor-pointer
+    }
+
+    .input {
+        @apply bg-background-light border border-borderColor rounded-full px-1 py-3 w-full focus:outline-none focus:border-transparent focus:ring-2 focus:ring-primary/35
+    }
+
+    .scrollGradient {
+        background:
+            linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
+            linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
+            radial-gradient(farthest-side at 50% 0, rgba(84, 84, 84, 0.5), rgba(0, 0, 0, 0)),
+            radial-gradient(farthest-side at 50% 100%, rgba(84, 84, 84, 0.5), rgba(0, 0, 0, 0)) 0 100%;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-attachment: local, local, scroll, scroll;
+        background-size: 100% 21px, 100% 21px, 100% 7px, 100% 7px;
+    }
+
+
+
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+    width: 5.5px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+    background: #09c;
+    border-radius: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    background: #0077cc;
+}
+
+@layer utilities {
+  .fade-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 1)
+    );
+  }
+
+  .fade-hidden::after {
+    display: none;
+  }
+}
