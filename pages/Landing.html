@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/output.css">
+</head>
+
+<body class="flex flex-col items-center">
+    <nav
+        class="sticky top-0 w-full mx-auto z-50 mb-5 left-0 right-0  py-5    px-6   bg-white border border-borderColor  flex justify-between items-center">
+        <div class="flex justify-center items-center cursor-pointer">
+            <img src="../assets/Icon.png" class="w-full mx-1.5" alt="">
+            <h1 class=" text-2xl font-bold text-secondary">Quizify</h1>
+        </div>
+
+        <div id="nav-right" class="flex justify-center items-center">
+
+            <p id="user-welcome" class="px-2 text-secondary text-lg" ></p>
+            <button class="btn-primary" onclick="logout()"> Logout</button>
+
+        </div>
+
+    </nav>
+
+    <div class="w-[80%] bg-white flex flex-col items-center drop-shadow-main rounded-2xl p-5 mb-5" id="rules-container">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-25 text-primary py-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+        </svg>
+
+
+        <ul class="self-start mx-7 p-4 list-disc ">
+            <li class=" text-secondary  xl:text-2xl pb-3">
+                <span class="font-bold"> Read Carefully:</span> Make sure you understand each question before answering.
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold"> Time Limit:</span> Each quiz has a set time — try to complete it within the time frame.
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold">One Attempt: </span>You can only take each quiz once .
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold">
+                    No Cheating: 
+                </span>
+                Use your own knowledge — do not consult external sources or other people.
+
+            </li>
+            <li class=" text-secondary  xl:text-2xl py-3">
+                <span class="font-bold">
+                    No Refresh:
+                </span>
+                 Do not refresh the page during the quiz, or your progress may be lost.
+
+            </li>
+        </ul>
+
+        <button class="btn-primary px-10 py-3 my-3 font-bold">Start Quiz</button>
+
+
+    </div>
+
+    <script src="../js/auth-guard.js"></script>
+    <script src="../js/landing.js"></script>
+</body>
+
+</html>

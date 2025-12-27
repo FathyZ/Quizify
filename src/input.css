@@ -22,9 +22,14 @@
     .btn-primary {
         @apply bg-primary border-2 border-primary rounded-full text-white px-6 py-1.5 mx-1.5 hover:bg-white hover:border-2 hover:border-primary hover:text-primary transition cursor-pointer
     }
-
-    .input {
-        @apply bg-background-light border border-borderColor rounded-full px-1 py-3 w-full focus:outline-none focus:border-transparent focus:ring-2 focus:ring-primary/35
+    .input{
+      @apply  bg-background-light border border-borderColor rounded-full px-3 py-3 w-full focus:outline-none focus:border-transparent focus:ring-2 focus:ring-primary/35 caret-primary
+    }
+    .form{
+         @apply w-full xl:w-[35%] md:w-[50%] border-borderColor bg-white shadow-soft rounded-3xl flex flex-col items-center py-8 px-4 mt-4;
+    }
+    .label{
+        @apply self-start ml-3 text-secondary font-medium my-1
     }
 
     .scrollGradient {

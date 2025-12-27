@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,67 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="../src/output.css">
 </head>
-<body >
+
+<body>
     <!-- <h1 class="text-3xl font-bold underline ">
         Hello world!
     </h1> -->
-    <nav class="sticky top-0 w-full mx-auto z-50 mb-5 left-0 right-0  py-5    px-6   bg-white border border-borderColor  flex justify-between items-center">
-        <div  class="flex justify-center items-center">
+    <nav
+        class="sticky top-0 w-full mx-auto z-50 mb-5 left-0 right-0  py-5    px-6   bg-white border border-borderColor  flex justify-between items-center">
+        <div class="flex justify-center items-center cursor-pointer">
             <img src="../assets/Icon.png" class="w-full mx-1.5" alt="">
             <h1 class=" text-2xl font-bold text-secondary">Quizify</h1>
         </div>
-    
+
         <div class="flex justify-center items-center">
 
-            <a href="" class=""><p class="text-grey mx-2">Already Have an account?</p></a>
+            <a href="login.html" class="hover:underline">
+                <p class="text-grey mx-2">Already Have an account?</p>
+            </a>
             <!-- <button class="btn-primary"> Login</button> -->
             <!-- <button class="bg-primary rounded-full  border border-transparent text-white px-6 py-1.5 mx-1.5 hover:bg-transparent hover:border hover:border-primary hover:text-primary transition cursor-pointer"> Sign Up</button> -->
         </div>
 
     </nav>
-    <div id="website-container" class="w-[80%] mx-auto h-200 flex flex-col items-center" >
-        
-        <form id="signUpForm" class="w-[35%] border-borderColor bg-white shadow-soft rounded-3xl flex flex-col items-center p-3 mt-4" action="">
-            <p class="text-secondary text-3xl font-bold my-3">Create your Account</p>
-            <p class="text-primary mb-3">Register and start taking quizzes now</p>
-            <label for="username" class="self-start">Username</label>
-            <input type="text" name="username" id="username" class="input">
-            <label for="password" class="self-start">Password</label>
-            <input type="password" name="password"id="password" class="input">
-            <label for="confirm-password" class="self-start">Confirm Password</label>
-            <input type="password" name="confirm-password"id="confirm-password" class="input">
-            <div class="flex justify-start items-center">
-                <input type="checkbox" name="agree-button" id="agree-button" class="inline"> 
-                <label for="agree-button" class="inline">I agree to the Terms of Service and Privacy Policy</label>
-                
-            </div>
-            <button id="signup-submit" class="btn-primary w-[50%]">Sign Up</button>
-        </form>
+    <div id="website-container" class="w-[80%] mx-auto h-full flex flex-col items-center">
 
+        <form id="signUpForm" class="form" onsubmit="submitForm(event)">
+            <p class="text-secondary text-3xl font-bold my-3">Create your Account</p>
+            <p class="text-primary mb-3">Register and start taking quizzes now.</p>
+            <label for="username" class="label ">Username</label>
+            <input type="text" name="username" id="username" class="input" oninput="validateUsername()">
+            <span id="username-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Username must be at least 5 characters long</span>
+            <label for="E-mail" class="label " oninput="">E-mail</label>
+            <input type="email" name="email" id="email" class="input" oninput="validateEmail()">
+            <span id="email-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Invalid email address</span>
+            <label for="password" class="label">Password</label>
+            <input type="password" name="password" id="password" class="input" oninput="validatePassword()">
+            <span id="password-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Password must be atleast 8 characters</span>
+            <label for="confirm-password" class="label">Confirm Password</label>
+            <input type="password" name="confirm-password" id="confirm-password" class="input"oninput="validateConfirmPassword()">
+            <span id="confirm-password-span" class="text-red-600 self-start px-3 opacity-0 select-none py-2">Passwords do not match</span>
+            <div class="flex justify-start items-center pb-4 self-start ml-2">
+                <input type="checkbox" name="agree-button" id="agree-button" class="inline">
+                <label for="agree-button" class="label ml-1 text-sm">I agree to the <a href="#"
+                        class="hover:underline text-primary ">Terms of Service</a> and <a href="#"
+                        class="hover:underline text-primary  ">Privacy Policy</a></label>
+            </div>
+            <input type="submit" id="signup-submit" class="btn-primary w-[50%]"></input>
+        </form>
+        <!-- <div class="mt-2 bg-teal-500 bg-opa  text-sm text-white rounded-lg p-4 fixed top-[12%] right-[5%]" role="alert" tabindex="-1" aria-labelledby="hs-solid-color-success-label">
+  <span id="hs-solid-color-success-label" class="font-bold">Registered ! </span>Your account was successfully created.
+</div> -->
     </div>
+
+
+
+
+
+
+    <script src="../js/auth-guard.js"></script>
+    <script src="../js/register.js"></script>
 </body>
+
 </html>
