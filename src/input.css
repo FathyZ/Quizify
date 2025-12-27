@@ -27,17 +27,20 @@
         @apply bg-background-light border border-borderColor rounded-full px-1 py-3 w-full focus:outline-none focus:border-transparent focus:ring-2 focus:ring-primary/35
     }
 
-.scrollGradient {
-  background: 
-    linear-gradient(#ffffff 33%, rgba(255,255,255, 0)),
-    linear-gradient(rgba(255,255,255, 0), #ffffff 66%) 0 100%,
-    radial-gradient(farthest-side at 50% 0, rgba(84,84,84, 0.5), rgba(0,0,0,0)),
-    radial-gradient(farthest-side at 50% 100%, rgba(84,84,84, 0.5), rgba(0,0,0,0)) 0 100%;
-  background-color: #ffffff;
-  background-repeat: no-repeat;
-  background-attachment: local, local, scroll, scroll;
-  background-size: 100% 21px, 100% 21px, 100% 7px, 100% 7px;
-}
+    .scrollGradient {
+        background:
+            linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0)),
+            linear-gradient(rgba(255, 255, 255, 0), #ffffff 66%) 0 100%,
+            radial-gradient(farthest-side at 50% 0, rgba(84, 84, 84, 0.5), rgba(0, 0, 0, 0)),
+            radial-gradient(farthest-side at 50% 100%, rgba(84, 84, 84, 0.5), rgba(0, 0, 0, 0)) 0 100%;
+        background-color: #ffffff;
+        background-repeat: no-repeat;
+        background-attachment: local, local, scroll, scroll;
+        background-size: 100% 21px, 100% 21px, 100% 7px, 100% 7px;
+    }
+
+
+
 }
 
 .scrollbar-custom::-webkit-scrollbar {
@@ -55,4 +58,25 @@
 
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
     background: #0077cc;
+}
+
+@layer utilities {
+  .fade-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 1)
+    );
+  }
+
+  .fade-hidden::after {
+    display: none;
+  }
 }

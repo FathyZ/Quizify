@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Tailwind Link -->
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+
+  <body class="bg-background-light pt-14">
+    <!-- Nav Bar -->
+    <nav class="fixed top-0 w-full mx-auto z-50 left-0 right-0">
+      <div
+        class="py-4 px-8 bg-white border border-borderColor flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <div class="flex justify-center items-center">
+          <img src="../assets/Icon.png" class="w-full mx-1.5" alt="" />
+          <h1 class="text-sm lg:text-xl font-bold text-secondary">Quizify</h1>
+        </div>
+
+        <!-- Timer -->
+        <div
+          id="timer"
+          class="bg-gray-100 rounded-full lg:px-3 lg:py-1.5 px-1 py-1 lg:m-0 mr-3 text-xs lg:text-base border[1px]"
+        >
+          <!-- <i class="fa-solid fa-stopwatch text-primary text-lg" aria-hidden="true"></i> -->
+          <i
+            class="fa-regular fa-clock font-bold text-primary"
+            aria-hidden="true"
+          ></i>
+          <span class="font-semibold mx-1" id="time">30:00</span>
+        </div>
+      </div>
+
+      <!--  Progress Bar -->
+      <div class="w-full bg-gray-200 rounded-full h-1" id="progress-bar">
+        <div id="progressBar" class="bg-primary h-1 rounded-r-full"></div>
+      </div>
+    </nav>
+
+    <main>
+      <div
+        class="container w-[98%] lg:w-[80%] mx-auto my-2 gap-6 flex flex-wrap py-7 px-5">
+        <div
+          id="quiestion-section"
+          class="lg:w-[65%] w-[90%] mx-auto lg:h-full bg-white shadow-soft rounded-xl p-5">
+          
+          <!-- Question Category and Flag Button -->
+          <div class="flex justify-between items-center mb-4">
+            <span
+              class="lg:font-semibold bg-gray-100 rounded-full px-3 py-1 border[1px] text-primary lg:text-sm text-xs"
+              id="time"
+              >CELL BIOLOGY</span
+            >
+
+            <button
+              id="flagBtn"
+              class="text-orange-400 border border-orange-300 rounded lg:p-1.5 p-1 bg-orange-50 cursor-pointer hover:bg-orange-100 hover:border-orange-400 hover:text-orange-500 transition-all duration-200 flex justify-center items-center"
+            >
+              <i class="fa-regular fa-flag text-orange-400"></i>
+              <!-- <i class="fa-solid fa-flag"></i> -->
+            </button>
+          </div>
+
+          <!--   Question Content  -->
+          <div class="py-3">
+            <p class="lg:text-2xl text-md font-bold" id="questionContent">
+              What is the primary function of the mithochondria in a eukaryotic
+              cell?
+            </p>
+          </div>
+
+          <!-- Answers -->
+          <div id="answers" class="my-5">
+            <!-- First Answer -->
+            <label
+              for="q1-answer1"
+              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            >
+              <input
+                type="radio"
+                name="q1"
+                value="0"
+                id="q1-answer1"
+                class="lg:size-5 size-3 border-gray-300"
+              />
+              <p id="answerContent1">Energy production (ATP generation)</p>
+            </label>
+
+            <!-- Second Answer -->
+            <label
+              for="q1-answer2"
+              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            >
+              <input
+                type="radio"
+                name="q1"
+                value="1"
+                id="q1-answer2"
+                class="lg:size-5 size-3 border-gray-300"
+              />
+              <p id="answerContent2">Energy production (ATP generation)</p>
+            </label>
+
+            <!-- Third Answer -->
+            <label
+              for="q1-answer3"
+              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            >
+              <input
+                type="radio"
+                name="q1"
+                value="2"
+                id="q1-answer3"
+                class="lg:size-5 size-3 border-gray-300"
+              />
+              <p id="answerContent3">Energy production (ATP generation)</p>
+            </label>
+
+            <!-- Fourth Answer -->
+            <label
+              for="q1-answer4"
+              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            >
+              <input
+                type="radio"
+                name="q1"
+                value="3"
+                id="q1-answer4"
+                class="lg:size-5 size-3 border-gray-300"
+              />
+              <p id="answerContent4">Energy production (ATP generation)</p>
+            </label>
+          </div>
+
+          <!-- Next/Prev Buttons -->
+          <div class="flex justify-between my-0">
+            <button
+              disabled
+              id="prevBtn"
+              class="bg-white cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed text-primary text-sm lg:text-base lg:font-semibold lg:px-6 lg:py-2 px-4 py-1.5 rounded-lg shadow-soft border border-borderColor enabled:hover:bg-gray-100 transition duration-300"
+            >
+              Previous
+            </button>
+            <button
+              id="nextBtn"
+              class="bg-primary text-white cursor-pointer text-sm disabled:opacity-70 disabled:cursor-not-allowed lg:text-base lg:font-semibold lg:px-6 lg:py-2 px-4 py-1.5 rounded-lg shadow-soft border border-primary enabled:hover:bg-blue-600 transition duration-300"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="hidden lg:block side-bar w-[30%] bg-white overflow-hidden shadow-soft rounded-xl p-4"
+        >
+          <!-- Flagged Question Title -->
+          <div
+            class="flex flex-wrap sticky top-0 left-0 right-0 justify-between pb-3 border-b-2 items-center border-b-gray-200"
+          >
+            <h3 class="text-sm font-bold">Flagged Questions</h3>
+            <p
+              class="bg-gray-100 rounded-2xl py-1.5 px-2.5 text-xs text-emerald-400 font-semibold"
+            >
+              <span>5</span>/20 Answered
+            </p>
+          </div>
+
+          <!-- Flagged question -->
+          <div
+            id="flaggedQuestionsContainer"
+            class="scrollGradient scrollbar-custom h-full text-center overflow-y-scroll pr-2"
+          >
+            <!-- Flagged Icon When no flagged questions -->
+            <!-- <div
+              class="flex flex-wrap justify-center items-center w-full text-5xl h-full"
+            >
+              <i class="fa-regular fa-flag text-gray-200"></i>
+            </div> -->
+
+            <!-- while adding new flagged question replace the icon div with this div -->
+            <div
+              class="flex flex-wrap justify-between items-center rounded hover:bg-gray-200 duration-300 p-1.5 my-2 cursor-pointer"
+              id="flaggedQuestion"
+            >
+              <div class="flex flex-wrap gap-3">
+                <div
+                  class="w-7 h-7 text-orange-400 border border-orange-300 rounded bg-orange-50 cursor-pointer flex justify-center items-center"
+                >
+                  1
+                </div>
+                <p>what is the moisits</p>
+              </div>
+              <div>
+                <i class="fa-regular fa-flag text-orange-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/timer.js"></script>
+    <script src="../js/exam.js"></script>
+  </body>
+</html>
