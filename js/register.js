@@ -134,7 +134,7 @@ for(var i=0;i<users.length;i++){
         alertDiv.setAttribute('role','alert')
         alertDiv.setAttribute('tabindex','-1')
         alertDiv.setAttribute('aria-labelledby','hs-solid-color-success-label')
-        alertDiv.innerHTML='<span id="hs-solid-color-success-label" class="font-bold">Registered ! </span>Your account was successfully created.'
+        alertDiv.innerHTML='<span id="hs-solid-color-success-label" class="font-bold">Registered ! Your account was successfully created.</span><br>You will be redirected to the login page in a few seconds.';
         document.body.appendChild(alertDiv);
         //fade in
         requestAnimationFrame(function() {
@@ -148,10 +148,31 @@ for(var i=0;i<users.length;i++){
             }, 500);
         }, 3000);
 
-        window.location.replace('login.html');
+        setTimeout(function(){
+            window.location.replace('login.html');
+
+        }, 3000);
 
 
     }
-
+    else{
+        var alertDiv = document.createElement('div');
+        alertDiv.className = 'mt-2 bg-red-400 text-sm text-white rounded-lg p-4 fixed top-[12%] right-[5%] opacity-0 transition-opacity duration-500';
+        alertDiv.setAttribute('role','alert')
+        alertDiv.setAttribute('tabindex','-1')
+        alertDiv.setAttribute('aria-labelledby','hs-solid-color-error-label')
+        alertDiv.innerHTML='<span id="hs-solid-color-error-label" class="font-bold">Registration Failed!</span><br>Please correct the errors in the form before submitting.';
+        document.body.appendChild(alertDiv);
+        //fade in
+        requestAnimationFrame(function() {
+            alertDiv.classList.remove('opacity-0');
+        });
+        //fade out after 3 seconds
+        setTimeout(function() {
+            alertDiv.classList.add('opacity-0');
+            setTimeout(function() {
+                document.body.removeChild(alertDiv);
+            }, 500);
+        }, 3000);
 }
-    
+}

@@ -19,8 +19,46 @@ function login(e) {
     }
     if (loggedInUser) {
         localStorage.setItem("loggedInUser", JSON.stringify({"username":loggedInUser.username,"email":loggedInUser.email}));
-        alert("Login successful!");
-        window.location.href = "Landing.html";
+           var alertDiv = document.createElement('div');
+        alertDiv.className = 'mt-2 bg-teal-500 text-sm text-white rounded-lg p-4 fixed top-[12%] right-[5%] opacity-0 transition-opacity duration-500';
+        alertDiv.setAttribute('role','alert')
+        alertDiv.setAttribute('tabindex','-1')
+        alertDiv.setAttribute('aria-labelledby','hs-solid-color-success-label')
+        alertDiv.innerHTML='<span id="hs-solid-color-success-label" class="font-bold">Logged In!</span><br>You will be redirected to the quiz page in a few seconds.';
+        document.body.appendChild(alertDiv);
+        //fade in
+        requestAnimationFrame(function() {
+            alertDiv.classList.remove('opacity-0');
+        });
+        //fade out after 3 seconds
+        setTimeout(function() {
+            alertDiv.classList.add('opacity-0');
+            setTimeout(function() {
+                document.body.removeChild(alertDiv);
+            }, 500);
+        }, 3000);
+
+        setTimeout(function(){
+            window.location.replace('question.html');
+
+        }, 3000);
     } else {
-        alert("Invalid username or password.");
+        var alertDiv = document.createElement('div');
+        alertDiv.className = 'mt-2 bg-red-400 text-sm text-white rounded-lg p-4 fixed top-[12%] right-[5%] opacity-0 transition-opacity duration-500';
+        alertDiv.setAttribute('role','alert')
+        alertDiv.setAttribute('tabindex','-1')
+        alertDiv.setAttribute('aria-labelledby','hs-solid-color-error-label')
+        alertDiv.innerHTML='<span id="hs-solid-color-error-label" class="font-bold">Login Failed!</span><br>Invalid username or password.';
+        document.body.appendChild(alertDiv);
+        //fade in
+        requestAnimationFrame(function() {
+            alertDiv.classList.remove('opacity-0');
+        });
+        //fade out after 3 seconds
+        setTimeout(function() {
+            alertDiv.classList.add('opacity-0');
+            setTimeout(function() {
+                document.body.removeChild(alertDiv);
+            }, 500);
+        }, 3000);
     }}
