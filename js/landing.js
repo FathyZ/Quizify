@@ -7,3 +7,6 @@ function logout(){
     localStorage.removeItem('loggedInUser');
     window.location.replace('index.html');
 }
+function goToQuiz(){
+    window.location.replace('question.html');
+}
