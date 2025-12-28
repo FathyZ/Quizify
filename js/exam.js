@@ -408,7 +408,7 @@ submitBtn.addEventListener("click", function () {
 // save user grade in the local storage
 function saveGrade() {
   let grade = 0;
-  let userAnswers = localStorage.getItem("userAnswers");
+  let userAnswers = JSON.parse(localStorage.getItem("userAnswers"));
   for (let i = 0; i < userAnswers.length; i++) {
     if (userAnswers[i] == questions[i].correctAnswerId) {
       grade++;
