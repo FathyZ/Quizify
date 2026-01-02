@@ -5,10 +5,10 @@ let questions = [
     status: "none", //  none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "Stack" },
-      { id: 2, text: "Queue" },
-      { id: 3, text: "Tree" },
-      { id: 4, text: "Graph" },
+      { id: 0, text: "Stack" },
+      { id: 1, text: "Queue" },
+      { id: 2, text: "Tree" },
+      { id: 3, text: "Graph" },
     ],
   },
   {
@@ -17,10 +17,10 @@ let questions = [
     status: "none", //  none - Flagged
     correctAnswerId: 0,
     answers: [
-      { id: 1, text: "O(1)" },
-      { id: 2, text: "O(n)" },
-      { id: 3, text: "O(log n)" },
-      { id: 4, text: "O(n²)" },
+      { id: 0, text: "O(1)" },
+      { id: 1, text: "O(n)" },
+      { id: 2, text: "O(log n)" },
+      { id: 3, text: "O(n²)" },
     ],
   },
   {
@@ -29,10 +29,10 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "Queue" },
-      { id: 2, text: "Stack" },
-      { id: 3, text: "Heap" },
-      { id: 4, text: "Linked List" },
+      { id: 0, text: "Queue" },
+      { id: 1, text: "Stack" },
+      { id: 2, text: "Heap" },
+      { id: 3, text: "Linked List" },
     ],
   },
   {
@@ -41,10 +41,10 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "O(n)" },
-      { id: 2, text: "O(log n)" },
-      { id: 3, text: "O(1)" },
-      { id: 4, text: "O(n log n)" },
+      { id: 0, text: "O(n)" },
+      { id: 1, text: "O(log n)" },
+      { id: 2, text: "O(1)" },
+      { id: 3, text: "O(n log n)" },
     ],
   },
   {
@@ -53,10 +53,10 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "O(n log n)" },
-      { id: 2, text: "O(n²)" },
-      { id: 3, text: "O(n)" },
-      { id: 4, text: "O(log n)" },
+      { id: 0, text: "O(n log n)" },
+      { id: 1, text: "O(n²)" },
+      { id: 2, text: "O(n)" },
+      { id: 3, text: "O(log n)" },
     ],
   },
   {
@@ -65,10 +65,10 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "O(n²)" },
-      { id: 2, text: "O(n log n)" },
-      { id: 3, text: "O(log n)" },
-      { id: 4, text: "O(n)" },
+      { id: 0, text: "O(n²)" },
+      { id: 1, text: "O(n log n)" },
+      { id: 2, text: "O(log n)" },
+      { id: 3, text: "O(n)" },
     ],
   },
   {
@@ -77,10 +77,10 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "Queue" },
-      { id: 2, text: "Stack" },
-      { id: 3, text: "Heap" },
-      { id: 4, text: "Linked List" },
+      { id: 0, text: "Queue" },
+      { id: 1, text: "Stack" },
+      { id: 2, text: "Heap" },
+      { id: 3, text: "Linked List" },
     ],
   },
   {
@@ -89,10 +89,10 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "O(n)" },
-      { id: 2, text: "O(log n)" },
-      { id: 3, text: "O(1)" },
-      { id: 4, text: "O(n log n)" },
+      { id: 0, text: "O(n)" },
+      { id: 1, text: "O(log n)" },
+      { id: 2, text: "O(1)" },
+      { id: 3, text: "O(n log n)" },
     ],
   },
   {
@@ -101,10 +101,10 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "Queue" },
-      { id: 2, text: "Stack" },
-      { id: 3, text: "Heap" },
-      { id: 4, text: "Linked List" },
+      { id: 0, text: "Queue" },
+      { id: 1, text: "Stack" },
+      { id: 2, text: "Heap" },
+      { id: 3, text: "Linked List" },
     ],
   },
   {
@@ -113,9 +113,9 @@ let questions = [
     status: "none", // none - Flagged
     correctAnswerId: 1,
     answers: [
-      { id: 1, text: "O(n)" },
-      { id: 2, text: "O(log n)" },
-      { id: 3, text: "O(1)" },
+      { id: 0, text: "O(n)" },
+      { id: 1, text: "O(log n)" },
+      { id: 2, text: "O(1)" },
       { id: 4, text: "O(n log n)" },
     ],
   },
@@ -387,11 +387,11 @@ function validateAnswered() {
   }
   return true;
 }
-// save user grade and redirect to grades page or coloring unanswered questions
+// submit answers , save user grade and redirect to grades page or coloring unanswered questions
 submitBtn.addEventListener("click", function () {
   if (validateAnswered()) {
     saveGrade();
-    window.location.replace("../pages/grades.html");
+    window.location.replace("../pages/grade.html");
   } else {
     navigators.forEach((navigator) => {
       if (userAnswers[navigator.innerText - 1] == null) {

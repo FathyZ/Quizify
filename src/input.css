@@ -84,4 +84,12 @@
   .fade-hidden::after {
     display: none;
   }
+
+
+  .correctAnswer{
+    @apply text-green-900 bg-green-200 border-green-300  has-checked:border-teal-700 has-checked:ring-1 has-checked:ring-teal-500;
+  }
+  .wrongAnswer{
+    @apply text-red-900   bg-red-200   border-red-300    has-checked:text-white      has-checked:ring-1 has-checked:border-red-700  has-checked:ring-red-600;
+  } 
 }

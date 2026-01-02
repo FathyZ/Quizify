@@ -1,195 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../src/output.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+  <body class="flex flex-col justify-center items-center">
+    <nav
+      class="sticky top-0 w-full mx-auto z-50 mb-5 left-0 right-0 py-5 px-6 bg-white border border-borderColor flex justify-between items-center"
+    >
+      <div class="flex justify-center items-center cursor-pointer">
+        <img src="../assets/Icon.png" class="w-full mx-1.5" alt="" />
+        <h1 class="text-2xl font-bold text-secondary">Quizify</h1>
+      </div>
 
-</head>
-<body class="flex flex-col justify-center items-center ">
-        <nav
-        class="sticky top-0 w-full mx-auto z-50 mb-5 left-0 right-0  py-5    px-6   bg-white border border-borderColor  flex justify-between items-center">
-        <div class="flex justify-center items-center cursor-pointer">
-            <img src="../assets/Icon.png" class="w-full mx-1.5" alt="">
-            <h1 class=" text-2xl font-bold text-secondary">Quizify</h1>
-        </div>
-
-        <div id="nav-right" class="flex justify-center items-center">
-
-            <p id="user-welcome" class="px-2 text-secondary text-lg" ></p>
-            <button class="btn-primary" onclick="logout()"> Logout</button>
-
-        </div>
-
+      <div id="nav-right" class="flex justify-center items-center">
+        <p id="user-welcome" class="px-2 text-secondary text-lg"></p>
+        <button class="btn-primary" onclick="logout()">Logout</button>
+      </div>
     </nav>
-<h1 class="text-5xl text-secondary font-bold my-5 bg-white p-8 border border-borderColor rounded-3xl">Quiz Result : 9/10</h1>
-<div class="w-[80%] flex flex-col justify-center items-center " id="page-container">
-    <div class=" w-[80%] bg-white p-8 rounded-2xl border border-borderColor" id="grades-container">
-            <div class="py-3 flex justify-between items-center w-full">
-            <p class="lg:text-2xl text-md font-bold" id="questionContent">
-              What is the primary function of the mithochondria in a eukaryotic
-              cell?
-            </p>
-            <p class="lg:text-2xl text-md font-bold text-primary">0/1*</p>
-          </div>
+    <h1
+      class="text-5xl text-secondary font-bold my-5 bg-white p-8 border border-borderColor rounded-3xl"
+    >
+      Quiz Result : <span id="userGrade"></span>/10
+    </h1>
+    <div
+      class="w-[80%] flex flex-col justify-center items-center"
+      id="pageContainer"
+    >
+      <div
+        class="questionContainer w-[80%] bg-white p-8 rounded-2xl border border-borderColor"
+        id="grades-container"
+      >
+        <div class="py-3 flex justify-between gap-x-1.5 items-start w-full">
+          <p class="lg:text-2xl text-md font-bold" id="questionContent">
+            What is the primary function of the mithochondria in a eukaryotic
+            cell?
+          </p>
+          <p class="lg:text-2xl text-md font-bold text-primary">0/1*</p>
+        </div>
 
-          <!-- Answers -->
-          <div id="answers" class="my-5">
-            <!-- First Answer -->
-            <label
-              for="q1-answer1"
-              class="flex items-center gap-4 my-2 text-red-900 bg-red-200 rounded-lg border border-red-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors  has-checked:text-white has-checked:border-red-700 has-checked:ring-1 has-checked:ring-red-600"
-            >
-              <input
-                type="radio"
-                name="q1"
-                value="0"
-                id="q1-answer1"
-                checked
-                disabled
-                class="lg:size-5 size-3 border-gray-300 "
-              />
-              <p id="answerContent1">Energy production (ATP generation)</p>
-            </label>
+        <!-- Answers -->
+        <div id="answers" class="my-5">
+          <!-- First Answer -->
+          <label
+            for="q1-answer1"
+            class="flex items-center gap-4 my-2 text-red-900 bg-red-200 rounded-lg border border-red-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-white has-checked:border-red-700 has-checked:ring-1 has-checked:ring-red-600"
+          >
+            <input
+              type="radio"
+              name="q1"
+              value="0"
+              id="q1-answer1"
+              disabled
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent1">Energy production (ATP generation)</p>
+          </label>
 
-            <!-- Second Answer -->
-            <label
-              for="q1-answer2"
-              class="flex items-center gap-4 my-2 text-green-900 bg-green-200 rounded-lg border border-green-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:border-teal-700 has-checked:ring-1 has-checked:ring-teal-500"
-            >
-              <input
-                type="radio"
-                name="q1"
-                value="1"
-                checked
-                disabled
-                id="q1-answer2"
-                class="lg:size-5 size-3 border-gray-300"
-              />
-              <p id="answerContent2">Energy production (ATP generation)</p>
-            </label>
+          <!-- Second Answer -->
+          <label
+            for="q1-answer2"
+            class="flex items-center gap-4 my-2 text-green-900 bg-green-200 rounded-lg border border-green-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:border-teal-700 has-checked:ring-1 has-checked:ring-teal-500"
+          >
+            <input
+              type="radio"
+              name="q1"
+              value="1"
+              checked
+              disabled
+              id="q1-answer2"
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent2">Energy production (ATP generation)</p>
+          </label>
 
-            <!-- Third Answer -->
-            <label
-              for="q1-answer3"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors  has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
-            >
-              <input
-                type="radio"
-                name="q1"
-                value="2"
-                disabled
-                id="q1-answer3"
-                class="lg:size-5 size-3 border-gray-300"
-              />
-              <p id="answerContent3">Energy production (ATP generation)</p>
-            </label>
+          <!-- Third Answer -->
+          <label
+            for="q1-answer3"
+            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+          >
+            <input
+              type="radio"
+              name="q1"
+              value="2"
+              disabled
+              id="q1-answer3"
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent3">Energy production (ATP generation)</p>
+          </label>
 
-            <!-- Fourth Answer -->
-            <label
-              for="q1-answer4"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors  has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
-            >
-              <input
-                type="radio"
-                name="q1"
-                value="3"
-                id="q1-answer4"
-                disabled
-                class="lg:size-5 size-3 border-gray-300"
-              />
-              <p id="answerContent4">Energy production (ATP generation)</p>
-            </label>
-          </div>
+          <!-- Fourth Answer -->
+          <label
+            for="q1-answer4"
+            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+          >
+            <input
+              type="radio"
+              name="q1"
+              value="3"
+              id="q1-answer4"
+              disabled
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent4">Energy production (ATP generation)</p>
+          </label>
+        </div>
+      </div>
 
+      <div
+        class="questionContainer w-[80%] bg-white p-8 rounded-2xl mt-5 border border-borderColor"
+        id="grades-container"
+      >
+        <div class="py-3 flex justify-between gap-x-1.5 items-start w-full">
+          <p class="lg:text-2xl text-md font-bold" id="questionContent">
+            What is the primary function of the mithochondria in a eukaryotic
+            cell?
+          </p>
+          <p class="lg:text-2xl text-md font-bold text-primary">1/1*</p>
+        </div>
+
+        <!-- Answers -->
+        <div id="answers" class="my-5">
+          <!-- First Answer -->
+          <label
+            for="q1-answer1"
+            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+          >
+            <input
+              type="radio"
+              name="q1"
+              value="0"
+              id="q1-answer1"
+              disabled
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent1">Energy production (ATP generation)</p>
+          </label>
+          <!-- Second Answer -->
+
+          <!--   -->
+          <label
+            for="q1-answer2"
+            class="flex items-center gap-4 my-2 text-green-900 bg-green-200 rounded-lg border border-green-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:border-green-300 has-checked:ring-1 has-checked:ring-green-300"
+          >
+            <input
+              type="radio"
+              name="q1"
+              value="1"
+              checked
+              disabled
+              id="q1-answer2"
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent2">Energy production (ATP generation)</p>
+          </label>
+
+          <!-- Third Answer -->
+          <label
+            for="q1-answer3"
+            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+          >
+            <input
+              type="radio"
+              name="q1"
+              disabled
+              value="2"
+              id="q1-answer3"
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent3">Energy production (ATP generation)</p>
+          </label>
+
+          <!-- Fourth Answer -->
+          <label
+            for="q1-answer4"
+            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+          >
+            <input
+              type="radio"
+              disabled
+              name="q1"
+              value="3"
+              id="q1-answer4"
+              class="lg:size-5 size-3 border-gray-300"
+            />
+            <p id="answerContent4">Energy production (ATP generation)</p>
+          </label>
+        </div>
+      </div>
     </div>
 
-        <div class=" w-[80%] bg-white p-8 rounded-2xl mt-5 border border-borderColor" id="grades-container">
-            <div class="py-3 flex justify-between items-center w-full">
-            <p class="lg:text-2xl text-md font-bold" id="questionContent">
-              What is the primary function of the mithochondria in a eukaryotic
-              cell?
-            </p>
-            <p class="lg:text-2xl text-md font-bold text-primary">1/1*</p>
-          </div>
 
-          <!-- Answers -->
-          <div id="answers" class="my-5">
-            <!-- First Answer -->
-                       <label
-              for="q1-answer1"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
-            >
-              <input
-                type="radio"
-                name="q1"
-                value="0"
-                id="q1-answer1"
-                disabled
-                class="lg:size-5 size-3 border-gray-300"
-              />
-              <p id="answerContent1">Energy production (ATP generation)</p>
-            </label>
-            <!-- Second Answer -->
-
-
-            <!--   -->
-            <label
-              for="q1-answer2"
-              class="flex items-center gap-4 my-2 text-green-900 bg-green-200 rounded-lg border border-green-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:border-green-300 has-checked:ring-1 has-checked:ring-green-300"
-            >
-              <input
-                type="radio"
-                name="q1"
-                value="1"
-                checked
-                disabled
-                id="q1-answer2"
-                class="lg:size-5 size-3 border-gray-300"
-              />
-              <p id="answerContent2">Energy production (ATP generation)</p>
-            </label>
-
-            <!-- Third Answer -->
-            <label
-              for="q1-answer3"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors  has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
-            >
-              <input
-                type="radio"
-                name="q1"
-                disabled
-                value="2"
-                id="q1-answer3"
-                class="lg:size-5 size-3 border-gray-300"
-              />
-              <p id="answerContent3">Energy production (ATP generation)</p>
-            </label>
-
-            <!-- Fourth Answer -->
-            <label
-              for="q1-answer4"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors  has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
-            >
-              <input
-                type="radio"
-                disabled
-                name="q1"
-                value="3"
-                id="q1-answer4"
-                class="lg:size-5 size-3 border-gray-300"
-              />
-              <p id="answerContent4">Energy production (ATP generation)</p>
-            </label>
-          </div>
-
-    </div>
-</div>
-
-
-</body>
+    <script src="../js/grade.js"></script>
+  </body>
 </html>
