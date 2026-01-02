@@ -1,8 +1,19 @@
+function saveGrade() {
+  let grade = 0;
+  let userAnswers = JSON.parse(localStorage.getItem("userAnswers"));
+  for (let i = 0; i < userAnswers.length; i++) {
+    if (userAnswers[i] == questions[i].correctAnswerId) {
+      grade++;
+    }
+  }
+  localStorage.setItem("userGrade", grade);
+}
+
 (function () {
   var timerContainer = document.getElementById("timer");
   var timerElement = document.getElementById("time");
   var timerIcon = document.getElementById("timer-icon");
-  var duration = 1.2* 60;
+  var duration = 1* 60;
   function startTimer(duration, display) {
     var timer = duration;
     let minutes, seconds;
@@ -19,8 +30,8 @@
           endQuiz();
       }
       if(timer<60){ //less than 1 min
+        timerContainer.classList.remove("bg-surface-soft");
             timerContainer.classList.add("bg-red-400", "text-white");
-            timerIcon.classList.remove("text-gray-500");
             timerIcon.classList.add("text-white");
       }
     }, 1000);
@@ -30,6 +41,8 @@
         /**
          * Handle quiz end logic here
          */
+
+        saveGrade();
 
 
         var alertDiv = document.createElement('div');
@@ -55,9 +68,12 @@
                 /**
          * redirect to grades page after 3 seconds
          */
-        // setTimeout(function(){
-        //     window.location.replace('grades.html');
-        // }, 3000);
+        setTimeout(function(){
+            window.location.replace('grade.html');
+        }, 3000);
     }
     startTimer(duration, timerElement);
 })();
+
+
+

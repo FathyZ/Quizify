@@ -219,8 +219,8 @@ function displayFlaggedQuestions() {
   } else if (questions[currentIndex].status == "none") {
     navigators[currentIndex].style.cssText = `
       color: var(--color-gray-900) ;
-    border : 1px solid var(--color-gray-300) ;
-    background-color: var(--color-gray-50)  ;
+    border : 1px solid var(--color-borderColor) ;
+    background-color: var(--color-surface-soft)  ;
     `;
     displayAnsweredQuestions(); //if it is unflagged check if it is already answered to make it green
   }
@@ -241,14 +241,14 @@ function displayQuestions() {
   answersContainer.innerHTML = `<!-- First Answer -->
             <label
               for="q${currentIndex + 1}-answer1"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+              class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-borderColor lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-surface-soft has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
             >
               <input
                 type="radio"
                 name="q${currentIndex + 1}"
                 value="0"
                 id="q${currentIndex + 1}-answer1"
-                class="lg:size-5 size-3 border-gray-300"
+                class="lg:size-5 size-3 border-borderColor"
                 ${userAnswer === "0" ? "checked" : ""}
               />
               <p id="answerContent1">${
@@ -259,14 +259,14 @@ function displayQuestions() {
             <!-- Second Answer -->
             <label
               for="q${currentIndex + 1}-answer2"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+              class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-borderColor lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-surface-soft has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
             >
               <input
                 type="radio"
                 name="q${currentIndex + 1}"
                 value="1"
                 id="q${currentIndex + 1}-answer2"
-                class="lg:size-5 size-3 border-gray-300"
+                class="lg:size-5 size-3 border-borderColor"
                 ${userAnswer === "1" ? "checked" : ""}
               />
               <p id="answerContent2">${
@@ -277,14 +277,14 @@ function displayQuestions() {
             <!-- Third Answer -->
             <label
               for="q${currentIndex + 1}-answer3"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+              class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-borderColor lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-surface-soft has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
             >
               <input
                 type="radio"
                 name="q${currentIndex + 1}"
                 value="2"
                 id="q${currentIndex + 1}-answer3"
-                class="lg:size-5 size-3 border-gray-300"
+                class="lg:size-5 size-3 border-borderColor"
                 ${userAnswer === "2" ? "checked" : ""}
               />
               <p id="answerContent3">${
@@ -295,14 +295,14 @@ function displayQuestions() {
             <!-- Fourth Answer -->
             <label
               for="q${currentIndex + 1}-answer4"
-              class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-gray-50 has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+              class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-borderColor lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors hover:bg-surface-soft has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
             >
               <input
                 type="radio"
                 name="q${currentIndex + 1}"
                 value="3"
                 id="q${currentIndex + 1}-answer4"
-                class="lg:size-5 size-3 border-gray-300"
+                class="lg:size-5 size-3 border-borderColor"
                 ${userAnswer === "3" ? "checked" : ""}
               />
               <p id="answerContent4">${
@@ -391,7 +391,7 @@ function validateAnswered() {
 submitBtn.addEventListener("click", function () {
   if (validateAnswered()) {
     saveGrade();
-    window.location.replace("../pages/grades.html");
+    window.location.replace("../pages/grade.html");
   } else {
     navigators.forEach((navigator) => {
       if (userAnswers[navigator.innerText - 1] == null) {
@@ -408,11 +408,11 @@ submitBtn.addEventListener("click", function () {
 // save user grade in the local storage
 function saveGrade() {
   let grade = 0;
-  let userAnswers = localStorage.getItem("userAnswers");
+  let userAnswers = JSON.parse(localStorage.getItem("userAnswers"));
   for (let i = 0; i < userAnswers.length; i++) {
     if (userAnswers[i] == questions[i].correctAnswerId) {
       grade++;
     }
   }
-  localStorage.setItem("userGrade" , grade);
+  localStorage.setItem("userGrade", grade);
 }

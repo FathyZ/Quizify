@@ -39,7 +39,7 @@ function login(e) {
         }, 3000);
 
         setTimeout(function(){
-            window.location.replace('question.html');
+            window.location.replace('landing.html');
 
         }, 3000);
     } else {
