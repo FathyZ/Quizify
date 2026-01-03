@@ -358,25 +358,42 @@ function displayAnsweredQuestions() {
   }
 }
 
-// Open sidebar
-hamburgerBtn.addEventListener("click", function () {
-  sidebar.classList.remove("hidden");
+// // Open sidebar
+// hamburgerBtn.addEventListener("click", function () {
+//   sidebar.classList.remove("hidden");
+//   closeIcon.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+// });
+
+// // Close Sidebar
+// closeIcon.addEventListener("click", function () {
+//   sidebar.classList.add("hidden");
+//   closeIcon.classList.add("hidden");
+//   overlay.classList.add("hidden");
+// });
+// // close sidebar if overlay clicked
+// overlay.addEventListener("click", function () {
+//   sidebar.classList.add("hidden");
+//   closeIcon.classList.add("hidden");
+//   overlay.classList.add("hidden");
+// });
+
+// OPEN
+hamburgerBtn.addEventListener("click", () => {
+  sidebar.classList.remove("translate-x-full");
+  overlay.classList.remove("opacity-0", "pointer-events-none");
   closeIcon.classList.remove("hidden");
-  overlay.classList.remove("hidden");
 });
 
-// Close Sidebar
-closeIcon.addEventListener("click", function () {
-  sidebar.classList.add("hidden");
+// CLOSE
+function closeSidebar() {
+  sidebar.classList.add("translate-x-full");
+  overlay.classList.add("opacity-0", "pointer-events-none");
   closeIcon.classList.add("hidden");
-  overlay.classList.add("hidden");
-});
-// close sidebar if overlay clicked
-overlay.addEventListener("click", function () {
-  sidebar.classList.add("hidden");
-  closeIcon.classList.add("hidden");
-  overlay.classList.add("hidden");
-});
+}
+
+closeIcon.addEventListener("click", closeSidebar);
+overlay.addEventListener("click", closeSidebar);
 
 // validate if all questions are answered
 function validateAnswered() {
