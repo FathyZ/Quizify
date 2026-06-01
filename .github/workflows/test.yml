@@ -16,3 +16,7 @@ jobs:
         run: ls -la
       - name: run tests
         run: echo "Running tests..."
+      - name: run cow
+        run: |
+          chmod +x script.sh
+          ./script.sh
