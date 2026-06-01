@@ -141,7 +141,7 @@ function displayExamReview() {
   // looping on the questions Array
   questions.forEach((question) => {
     cartona += `      <div
-        class=" questionContainer w-[80%] bg-white p-8 mb-3 rounded-2xl border border-borderColor"
+        class=" questionContainer w-[80%] bg-surface p-8 mb-3 rounded-2xl border border-borderColor"
         id="grades-container"
       >
         <div class="py-3 flex justify-between gap-x-1.5 items-start w-full">
@@ -156,7 +156,7 @@ function displayExamReview() {
           <!-- First Answer -->
           <label
             for="q1-answer1"
-            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
           >
             <input
               type="radio"
@@ -172,13 +172,12 @@ function displayExamReview() {
           <!-- Second Answer -->
           <label
             for="q1-answer2"
-            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
           >
             <input
               type="radio"
               name="q1"
               value="1"
-              checked
               disabled
               id="q1-answer2"
               class="lg:size-5 size-3 border-gray-300"
@@ -189,7 +188,7 @@ function displayExamReview() {
           <!-- Third Answer -->
           <label
             for="q1-answer3"
-            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
           >
             <input
               type="radio"
@@ -205,7 +204,7 @@ function displayExamReview() {
           <!-- Fourth Answer -->
           <label
             for="q1-answer4"
-            class="flex items-center gap-4 my-2 bg-gray-100 rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
+            class="flex items-center gap-4 my-2 bg-surface-soft rounded-lg border border-gray-300 lg:p-4 p-3 lg:text-sm text-xs shadow-sm transition-colors has-checked:text-secondary has-checked:border-primary has-checked:ring-1 has-checked:ring-primary"
           >
             <input
               type="radio"
@@ -262,5 +261,9 @@ function coloringAnswers() {
   }
 }
 
+function logout(){
+    localStorage.removeItem('loggedInUser');
+    window.location.replace('index.html');
+}
 
 

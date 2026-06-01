@@ -173,12 +173,36 @@
       <!-- Side Bar -->
       <!-- hidden always , appeared only if hamburger icon clicked  -->
 
-      <div id="sidebar"
-        class="lg:block hidden lg:static lg:z-0 side-bar lg:w-[31.5%] bg-surface lg:overflow-hidden lg:h-fit lg:shadow-soft lg:rounded-xl lg:p-4 fixed top-0 right-0 z-50 w-70 md:w-[320px] h-full p-3.5  overflow-y-scroll scrollGradient scrollbar-custom">
+      <div
+  id="sidebar"
+  class="
+    side-bar
+    bg-surface
+    fixed top-0 right-0 z-50
+    w-70 md:w-[320px] h-full p-3.5
+    overflow-y-scroll scrollGradient scrollbar-custom
+
+    transform translate-x-full
+    transition-transform duration-300 ease-in-out
+
+    lg:static lg:translate-x-0
+    lg:block
+    lg:z-0
+    lg:w-[31.5%]
+    lg:h-fit
+    lg:overflow-hidden
+    lg:shadow-soft
+    lg:rounded-xl
+    lg:p-4
+  "
+>
         <!-- hidden always , appeared only if hamburger icon clicked  -->
-        <div id="closeIcon" class="closeIcon hidden lg:hidden cursor-pointer text-right ml-auto w-fit ">
-          <i class="fa-solid fa-xmark"></i>
-        </div>
+<div
+  id="closeIcon"
+  class="closeIcon lg:hidden cursor-pointer text-right ml-auto w-fit"
+>
+  <i class="fa-solid fa-xmark"></i>
+</div>
         <!-- Flagged Question Title -->
         <div class="title">
           <h3 class="text-md font-bold text-center mb-2.5">
@@ -246,6 +270,16 @@
           </button>
         </div>
       </div>
+
+      <div
+  id="overlay"
+  class="
+    fixed inset-0 z-40 bg-black/50
+    opacity-0 pointer-events-none
+    transition-opacity duration-300
+    lg:hidden
+  "
+></div>
     </div>
   </main>
 

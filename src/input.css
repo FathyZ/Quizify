@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
 
+
+
+
+
+
 @theme {
     --color-primary: #09c;
     --color-borderColor: #E7E5E4;
@@ -196,9 +201,21 @@
 
 
   .correctAnswer{
-    @apply text-green-900 bg-green-200 border-green-300  has-checked:border-teal-700 has-checked:ring-1 has-checked:ring-teal-500;
+    @apply text-green-900 bg-green-100 border-green-300  has-checked:border-teal-700 has-checked:ring-1 has-checked:ring-teal-500;
   }
   .wrongAnswer{
-    @apply text-red-900   bg-red-200   border-red-300    has-checked:text-white      has-checked:ring-1 has-checked:border-red-700  has-checked:ring-red-600;
+    @apply text-red-900   bg-red-100   border-red-300    has-checked:text-white      has-checked:ring-1 has-checked:border-red-700  has-checked:ring-red-600;
   } 
+}
+
+/* Chrome / Edge / Brave */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-secondary);
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-background-light) inset;
+  box-shadow: 0 0 0px 1000px var(--color-background-light) inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
